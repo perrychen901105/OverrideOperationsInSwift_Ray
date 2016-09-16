@@ -4,6 +4,11 @@ import UIKit
 
 class User {
     var name: String
+    private(set) var phones: [Phone] = []
+    func add(phone: Phone) {
+        phones.append(phone)
+        phone.owner = self
+    }
     
     init(name: String) {
         self.name = name
@@ -32,4 +37,5 @@ class Phone {
 do {
     let user1 = User(name: "John")
     let iPhone = Phone(model: "iPhone 6s Plus")
+    user1.add(iPhone)
 }
